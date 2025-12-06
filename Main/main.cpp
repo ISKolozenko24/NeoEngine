@@ -23,7 +23,7 @@ cout<<".................HANGMAN................\n";
 cout<<"........................................\n\n";
 }
 
-int pickWordIndex(int &last){
+int pickWord(int &last){
     last++;
     if(last>=words.size()) last=0;
     return last;
@@ -33,25 +33,25 @@ int main(){
 logo();
 
 int lastWord=-1;
-char menuChoice;
+char choice;
 while(true){
     cout<<"MENU:\n";
     cout<<"1 - Play\n";
     cout<<"2 - Info\n";
     cout<<"3 - Exit\n";
     cout<<"Choice: ";
-    cin>>menuChoice;
+    cin>>choice;
 
-    if(menuChoice=='3'){
+    if(choice=='3'){
         cout<<"Bye!\n";
         return 0;
     }
-    if(menuChoice=='2'){
+    if(choice=='2'){
         cout<<"\nSimple hangman game.\nGuess letters, don't die.\n\n";
         continue;
     }
-    if(menuChoice=='1'){
-        int idx = pickWordIndex(lastWord);
+    if(choice=='1'){
+        int idx = pickWord(lastWord);
         string w = words[idx];
         string g(w.size(),'_');
         vector<char> used;
@@ -94,7 +94,5 @@ while(true){
         else cout<<"You lost! Word was: "<<w<<"\n\n";
     }
 }
-return 0;
 }
-
 
